@@ -1,0 +1,4 @@
+#include "sanparser.h"
+#include <istream>
+
+using namespace std;
