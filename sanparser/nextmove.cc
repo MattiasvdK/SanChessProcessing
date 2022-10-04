@@ -5,8 +5,8 @@ namespace Mule::Chess
         // Should technically check if game is ready
     bool SANParser::nextMove()
     {
-        if (!d_game)
-            return false;
+        //if (!d_game)
+        //    return false;
 
         if (d_colour *= BLACK; d_colour == WHITE)
         {
@@ -15,8 +15,7 @@ namespace Mule::Chess
             d_game >> tmp;      // Flush the turn counter
         }
         
-        parse();
-        return true;
+        return parse();
     }
 
 } // namespace Mule::Chess

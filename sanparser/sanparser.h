@@ -37,7 +37,7 @@ namespace Mule::Chess
 
       private:
         // bool findMove(std::string &move) const;
-        void parse();
+        bool parse();
 
             // parse helper functions
         bool isCastle(std::string const &move);

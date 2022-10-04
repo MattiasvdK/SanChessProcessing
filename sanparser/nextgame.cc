@@ -11,6 +11,7 @@ namespace Mule::Chess
         if (!getline(d_in, line))
             return false;
 
+        d_game.clear();
         d_game << line;
         return true;
     }

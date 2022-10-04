@@ -2,17 +2,18 @@
 
 namespace Mule::Chess
 {
-    void SANParser::parse()
+    bool SANParser::parse()
     {
 
         std::string move;
-        d_game >> move;     // Note: this might go wrong
+        if (!(d_game >> move))     // Note: this might go wrong
+            return false;
 
         d_move.colour = d_colour;
         d_move.nTurn = d_nTurn;
 
         if (isCastle(move))
-            return;
+            return true;
         
         size_t idx = 0;
 
@@ -26,6 +27,8 @@ namespace Mule::Chess
             getPosition(move, idx);
         }
         checkCheck(move, idx);
+
+        return true;
     }
 
 
