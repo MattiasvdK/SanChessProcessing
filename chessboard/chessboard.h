@@ -28,7 +28,6 @@ namespace Mule::Chess
             const_iterator &operator++();
             bool operator!=(const_iterator const &other) const;
             int8_t operator*() const;
-            bool operator==(const_iterator const &other) const;
         };
 
         /*
