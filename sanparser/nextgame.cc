@@ -5,7 +5,7 @@ namespace Mule::Chess
     bool SANParser::nextGame()
     {
         d_nTurn = 0;
-        d_colour = BLACK;
+        d_colour = NO_COLOUR;
         
         string line;
         if (!getline(d_in, line))

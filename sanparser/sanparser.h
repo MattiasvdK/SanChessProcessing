@@ -21,7 +21,7 @@ namespace Mule::Chess
 
         size_t d_nTurn;
 
-        int8_t d_colour;
+        Colour d_colour;
 
         //bool d_ready = false;
 
@@ -54,16 +54,6 @@ namespace Mule::Chess
     :
         d_in(in)
     {}
-
-/*
-    inline bool SANParser::nextGame()
-    {
-        d_move = 0;
-        d_ready = getline(d_in, d_game);
-
-        if ()
-    }
-*/
 
     inline Move const &SANParser::move() const
     {

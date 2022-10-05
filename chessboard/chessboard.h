@@ -64,12 +64,12 @@ namespace Mule::Chess
         /*
         * Helper functions to set the pieces
         */
-        void setPawn(int8_t colour, Position movedTo, Position movedFrom);
-        void setBishop(int8_t colour, Position movedTo, Position movedFrom);
-        void setKnight(int8_t colour, Position movedTo, Position movedFrom);
-        void setRook(int8_t colour, Position movedTo, Position movedFrom);
-        void setQueen(int8_t colour, Position movedTo, Position movedFrom);
-        void setKing(int8_t colour, Position movedTo, Position movedFrom);
+        void setPawn(Move move);
+        void setBishop(Move move);
+        void setKnight(Move move);
+        void setRook(Move move);
+        void setQueen(Move move);
+        void setKing(Move move);
     };
 
     // Create insertion operator for ChessBoard class
