@@ -24,6 +24,12 @@ namespace Mule::Chess
         KING,
     };
 
+    enum Orientation
+    {
+        RANK,
+        FILE,
+    };
+
     enum Check
     {
         NO_CHECK,
@@ -40,10 +46,10 @@ namespace Mule::Chess
 
     struct Position       // Square coordinates
     {
-        static uint8_t undefined;
+        inline static uint8_t undefined = -1;
 
-        uint8_t file = undefined;   // The column of the square
-        uint8_t rank = undefined;   // The row of the square
+        uint8_t rank = undefined;   // The column of the square
+        uint8_t file = undefined;   // The row of the square
     };
 
     struct Square
@@ -63,12 +69,12 @@ namespace Mule::Chess
                         // when specified in SAN notation
         Position to;      // The square that the piece was moved to
         
-        int8_t colour;  // The colour of the moved piece
-        int8_t piece;   // The piece that was moved
+        Colour colour;  // The colour of the moved piece
+        Pieces piece;   // The piece that was moved
 
         bool take;      // If an opponents piece was taken
-        size_t check;   // Holds check info
-        size_t castle;  // Holds castle info
+        Check check;   // Holds check info
+        Castle castle;  // Holds castle info
     };
 
 

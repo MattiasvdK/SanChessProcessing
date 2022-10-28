@@ -1,5 +1,7 @@
 #include "chessboard.h"
 
-#include "../types/chesstypes.h"
+#include <algorithm>
+#include <iostream>
+#include <string>
 
 using namespace std;

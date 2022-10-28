@@ -15,16 +15,16 @@ namespace Mule::Chess
         d_move.piece = KING;
 
             // The files are the same for both colours
-        d_move.from = { .file = 4, .rank = rank };
+        d_move.from = { .rank = rank, .file = 4 };
 
             // Resulting file depends on long or short castling
             // NMN, short castling
         if (move.length() < 5)
-            d_move.to = { .file = 6, .rank = rank };
+            d_move.to = { .rank = rank, .file = 6 };
 
             // Long castling
         else
-            d_move.to = { .file = 1, .rank = rank };
+            d_move.to = { .rank = rank, .file = 1 };
         
             // Check if the castle results in a check or mate
         checkCheck(move, move.length() - 1);
