@@ -57,6 +57,8 @@ namespace Mule::Chess
       private:
         int8_t d_board[BOARD_DIM][BOARD_DIM];    // The chess board representation
 
+        Position d_from;                         // Stores place the piece was moved from for logging
+
       public:
         ChessBoard();
         void processMove(Move move);
@@ -92,7 +94,11 @@ namespace Mule::Chess
         bool checkAndMove(uint8_t rank, uint8_t file, int8_t piece);
 
         static std::pair<uint8_t, uint8_t> getKnightMoves(Position src, Orientation orient, uint8_t constr);
+        
+        bool checkRookPath(Position src, Orientation orient, uint8_t dst);
+        
         static int8_t pieceToInt(Pieces piece, Colour colour);
+
     };
 
     // Create insertion operator for ChessBoard class

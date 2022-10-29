@@ -2,9 +2,9 @@
 
 namespace Mule::Chess
 {
+
     void ChessBoard::setKnight(Move move)
     {
-
 
         int8_t const piece = pieceToInt(move.piece, move.colour);
 
@@ -23,7 +23,7 @@ namespace Mule::Chess
             // Locate knight based on given 
         if (move.from.file != Position::undefined)
         {
-            auto [west, east] = getKnightMoves(move.to, Orientation::FILE, move.from.file);
+            auto [west, east] = getKnightMoves(move.to, FILE, move.from.file);
             if (!checkAndMove(west, move.from.file, piece))
                 if (!checkAndMove(east, move.from.file, piece))
                     throw string{"Piece not found in move of KNIGHT"};
@@ -42,14 +42,14 @@ namespace Mule::Chess
             auto [west, east] = getKnightMoves(move.to, Orientation::RANK, rank);
             if
             (
-                checkAndMove(move.from.rank, west, piece) 
+                ( west >= 0 && west < 8 && checkAndMove(rank, west, piece) )
               || 
-                checkAndMove(move.from.rank, east, piece)
+                ( east >= 0 && east < 8 && checkAndMove(rank, east, piece) )
             )
                 return;
 
         }
-
+        throw string{"Piece not found in move of KNIGHT"};
     }
 
 } // namespace Mule::Chess

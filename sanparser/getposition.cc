@@ -4,17 +4,16 @@ namespace Mule::Chess
 {
     namespace
     {
-        string u_rank = {"12345678"};
-        string u_file = {"abcdefgh"};
+        string const u_rank = {"12345678"};
+        string const u_file = {"abcdefgh"};
     }
 
     bool SANParser::getPosition(string const &move, size_t &idx)
     {
-        Position pos;
-        d_move.from = Position{ Position::undefined, Position::undefined };
+        Position pos = Position{ Position::undefined, Position::undefined };
 
         if (u_file.find(move[idx]) != string::npos)
-            pos.file = 7 - (move[idx++] - 'a');
+            pos.file = move[idx++] - 'a';
 
         if (u_rank.find(move[idx]) != string::npos)
             pos.rank = move[idx++] - '1';

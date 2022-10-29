@@ -20,11 +20,18 @@ namespace Mule::Chess
             // Resulting file depends on long or short castling
             // NMN, short castling
         if (move.length() < 5)
+        {
             d_move.to = { .rank = rank, .file = 6 };
+            d_move.castle = SHORT;
+        }
+
 
             // Long castling
         else
+        {
             d_move.to = { .rank = rank, .file = 1 };
+            d_move.castle = LONG;
+        }
         
             // Check if the castle results in a check or mate
         checkCheck(move, move.length() - 1);

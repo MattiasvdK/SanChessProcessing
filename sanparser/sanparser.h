@@ -33,7 +33,7 @@ namespace Mule::Chess
         bool nextMove();    // Prepares the next move made
         bool nextGame();    // Prepares the next game
 
-        Move const &move() const;
+        Move move() const;
 
       private:
         // bool findMove(std::string &move) const;
@@ -55,7 +55,7 @@ namespace Mule::Chess
         d_in(in)
     {}
 
-    inline Move const &SANParser::move() const
+    inline Move SANParser::move() const
     {
         return d_move;
     }

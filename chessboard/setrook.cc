@@ -39,7 +39,12 @@ namespace Mule::Chess
             if (file == move.to.file)
                 continue;
 
-            if (checkPosition(move.to.rank, file, piece))
+            if
+            (
+                checkPosition(move.to.rank, file, piece)
+              && 
+                checkRookPath(move.to, FILE, file)
+            )
             {
                 movePieceFrom(Position{ move.to.rank, file });
                 return true;
@@ -52,7 +57,12 @@ namespace Mule::Chess
             if (rank == move.to.rank)
                 continue;
 
-            if (checkPosition(rank, move.to.file, piece))
+            if
+            (
+                checkPosition(rank, move.to.file, piece)
+              &&
+                checkRookPath(move.to, RANK, rank)
+            )
             {
                 movePieceFrom(Position{ rank, move.to.file });
                 return true;

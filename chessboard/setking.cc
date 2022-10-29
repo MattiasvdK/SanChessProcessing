@@ -10,24 +10,24 @@ namespace Mule::Chess
         // If castle
         if (move.castle != NO_CASTLE)
         {
-            movePieceFrom(move.from);
-
             // Only the rank changes with the colour and since that is
             // stored we don't need to check for it
             Position rookTo{ 
                 move.to.rank,
                 static_cast<uint8_t>(
-                    move.to.file + (move.castle == SHORT ? 1: - 1)
+                    move.to.file + (move.castle == SHORT ? -1: 1)
                 )
             };
 
             Position rookFrom{
                 move.to.rank,
-                static_cast<uint8_t>(move.castle == SHORT ? 0 : 7)
+                static_cast<uint8_t>(move.castle == SHORT ? 7 : 0)
             };
-
+            
             movePieceFrom(rookFrom);
-            movePieceTo(move.colour, move.piece, rookTo);
+            movePieceTo(move.colour, ROOK, rookTo);
+
+            movePieceFrom(move.from);   // Done last to store king as target square
 
             return;
         }

@@ -17,8 +17,8 @@ namespace Mule::Chess
 
         uint8_t const rank = move.to.rank - dir;
 
-        cerr << "Pawn rank: " << static_cast<int>(rank) << '\n';
-        cerr << "Pawn rank: " << static_cast<int>(rank - 1) << '\n';
+        // cerr << "Pawn rank: " << static_cast<int>(rank) << '\n';
+        // cerr << "Pawn rank: " << static_cast<int>(rank - 1) << '\n';
 
         if (!move.take)
         {   
