@@ -15,7 +15,8 @@ namespace Mule::Chess
         // 
       private:
         std::istream &d_in;
-        //std::string d_game;
+
+        size_t d_count;
 
         std::stringstream d_game;
 
@@ -34,6 +35,7 @@ namespace Mule::Chess
         bool nextGame();    // Prepares the next game
 
         Move move() const;
+        size_t count() const;
 
       private:
         // bool findMove(std::string &move) const;
@@ -52,12 +54,17 @@ namespace Mule::Chess
 
     inline SANParser::SANParser(std::istream &in)
     :
-        d_in(in)
+        d_in(in), d_count(0)
     {}
 
     inline Move SANParser::move() const
     {
         return d_move;
+    }
+
+    inline size_t SANParser::count() const
+    {
+        return d_count;
     }
 
 }   // Mule::Chess

@@ -13,6 +13,9 @@ namespace Mule::Chess
 
         d_game.clear();
         d_game << line;
+
+        ++d_count;
+
         return true;
     }
 

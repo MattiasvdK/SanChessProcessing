@@ -13,6 +13,7 @@ namespace Mule::Chess
             throw std::string{"Piece removed illegally"};
         }
         d_board[position.rank][position.file] = 0;
+        d_from = position;
     }
 
 } // namespace Mule::Chess

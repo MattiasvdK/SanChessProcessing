@@ -25,8 +25,6 @@ namespace Mule::Chess
             // or when there is ambiguity
         if (!getPosition(move, idx))
         {
-            cerr << "Source position found\n";
-
             checkTake(move, idx);
             getPosition(move, idx);
         }

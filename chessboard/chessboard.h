@@ -63,7 +63,8 @@ namespace Mule::Chess
         ChessBoard();
         void processMove(Move move);
         int8_t const *board() const;
-        
+        Position from() const;
+
         /*
         const_iterator cbegin() const;
         const_iterator cend() const;
@@ -126,6 +127,11 @@ namespace Mule::Chess
     inline int8_t const *ChessBoard::board() const
     {
         return reinterpret_cast<int8_t const *>(d_board);
+    }
+
+    inline Position ChessBoard::from() const
+    {
+        return d_from;
     }
 
     /*
