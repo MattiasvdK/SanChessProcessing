@@ -7,6 +7,9 @@ namespace Mule::Chess
         while (d_parser.nextGame())
         try
         {
+            if (d_parser.count() % 1000 == 0)
+                cerr << d_parser.count() << '\n';
+
             string const gameDir{
                 d_target + "/game" + to_string(d_parser.count())
             };

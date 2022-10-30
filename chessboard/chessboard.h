@@ -106,6 +106,9 @@ namespace Mule::Chess
 
     inline bool ChessBoard::checkPosition(uint8_t rank, uint8_t file, int8_t piece)
     {
+        if (rank < 0 || rank >= 8 || file < 0 || file >= 8)
+            return false;
+            
         return d_board[rank][file] == piece;
     }
 
