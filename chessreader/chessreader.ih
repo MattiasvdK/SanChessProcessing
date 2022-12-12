@@ -1,0 +1,9 @@
+#include "chessreader.h"
+
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <filesystem>
+
+using namespace std;

@@ -1,0 +1,16 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <utility>
+#include <iterator>
+#include <iomanip>
+#include <string>
+
+//#include "chessreader/chessreader.h"
+#include "sanparser/sanparser.h"
+#include "chessboard/chessboard.h"
+#include "writer/writer.h"
+
+using namespace std;
+using namespace Mule::Chess;
+

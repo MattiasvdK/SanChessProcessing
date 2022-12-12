@@ -28,7 +28,7 @@ namespace Mule::Chess
 
       private:
         void moveToFile(std::ostream &file);
-        void boardToFile(std::ostream &file);
+        void boardToFile(std::ostream &file, Colour colour);
 
 
     };
