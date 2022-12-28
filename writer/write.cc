@@ -39,7 +39,7 @@ namespace Mule::Chess
                 
                 // This needs to be processed after the move to find the
                 // source square
-                moveToFile(outMove);
+                moveToFile(outMove, d_parser.move().colour);
 
 
                 ++d_nMove;

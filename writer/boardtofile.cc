@@ -18,7 +18,7 @@ namespace Mule::Chess
         void writeBlack(ostream &file, int8_t const *board)
         {
             for (uint8_t idx = 64; idx--; )
-                file << board[idx] * -1;
+                file << static_cast<int8_t>(board[idx] * -1);
         }
 
     }
