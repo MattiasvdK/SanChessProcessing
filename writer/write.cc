@@ -4,26 +4,30 @@ namespace Mule::Chess
 {
     void Writer::write()
     {
+
+        string const gameDir{
+            d_target //+ "/game" + to_string(d_parser.count())
+        };
+        filesystem::create_directory(gameDir);
+
         while (d_parser.nextGame())
         try
         {
-            //cont = false;
-
             if (d_parser.count() % 1000 == 0)
-                cerr << d_parser.count() << '\n';
-
-            string const gameDir{
-                d_target //+ "/game" + to_string(d_parser.count())
-            };
-            filesystem::create_directory(gameDir);
-
-            //d_nMove = 0;
+                cout << d_parser.count() << '\n';
 
             d_board = ChessBoard{};
 
             while (d_parser.nextMove())
             try
             {
+                if (d_written.contains(dataToString(d_parser.move().colour)))
+                {
+                    d_board.processMove(d_parser.move());
+                    continue;
+                }
+
+                d_written[dataToString(d_parser.move().colour)] = true;
 
                 string const moveDir = gameDir + "/move" + to_string(d_nMove);
                 filesystem::create_directory(moveDir);
@@ -41,12 +45,12 @@ namespace Mule::Chess
                 // source square
                 moveToFile(outMove, d_parser.move().colour);
 
-
                 ++d_nMove;
             }
             catch(string const &error)
             {
-                cerr << error << '\n';
+                cerr << "Move " << d_nMove << ": " << error << '\n';
+                break;
             }
             catch(...)
             {
@@ -58,5 +62,7 @@ namespace Mule::Chess
             cerr << "Probably something in the output directory\n";
             return;
         }
+
+        cout << "Written " << d_nMove << " total moves\n";
     }
 }

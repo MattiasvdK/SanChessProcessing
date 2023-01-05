@@ -23,7 +23,7 @@ namespace Mule::Chess
 
     }
 
-    void Writer::boardToFile(ostream &file, Colour colour)
+    void Writer::boardToFile(ostream &file, Colour colour) const
     {   
         // MN: 64 amount of squares on chessboard.
         // is it nice? no. does it get the job done? yes

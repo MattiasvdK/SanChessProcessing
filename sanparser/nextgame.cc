@@ -11,8 +11,7 @@ namespace Mule::Chess
         if (!getline(d_in, line))
             return false;
 
-        d_game.clear();
-        d_game << line;
+        d_game = stringstream{ line };
 
         ++d_count;
 

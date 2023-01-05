@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <unordered_map>
 
 
 // Error handling needs... improvement
@@ -20,6 +21,10 @@ namespace Mule::Chess
         ChessBoard d_board;
         std::string const d_target;
 
+        // Stores whether a position + move combination is already written
+        // to prevent duplicate data points.
+        std::unordered_map<std::string, bool> d_written;
+
         size_t d_nMove;
 
       public:
@@ -27,9 +32,10 @@ namespace Mule::Chess
         void write();
 
       private:
-        void moveToFile(std::ostream &file, Colour colour);
-        void boardToFile(std::ostream &file, Colour colour);
+        void moveToFile(std::ostream &file, Colour colour) const;
+        void boardToFile(std::ostream &file, Colour colour) const;
 
+        std::string dataToString(Colour colour) const;
 
     };
 

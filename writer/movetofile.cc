@@ -11,7 +11,7 @@ namespace Mule::Chess
         }
     }
     
-    void Writer::moveToFile(ostream &file, Colour colour)
+    void Writer::moveToFile(ostream &file, Colour colour) const
     {
         if (colour == WHITE)
             file << d_board.from().rank << d_board.from().file

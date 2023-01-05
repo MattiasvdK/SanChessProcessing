@@ -54,27 +54,24 @@ namespace Mule::Chess
 
     struct Square
     {
-        int8_t colour;  // The colour of the moved piece
-        int8_t piece;   // The piece that was moved
+        int8_t colour;    // The colour of the moved piece
+        int8_t piece;     // The piece that was moved
     };
 
-
-        // QUESTION: How to represent castling
-
-    struct Move         // Representation of Moves
+    struct Move           // Representation of Moves
     {
-        size_t nTurn;   // Turn in which the move is made
+        size_t nTurn;     // Turn in which the move is made
 
         Position from;    // The square that the piece was moved from
-                        // when specified in SAN notation
+                          // when specified in SAN notation
         Position to;      // The square that the piece was moved to
         
-        Colour colour;  // The colour of the moved piece
-        Pieces piece;   // The piece that was moved
+        Colour colour;    // The colour of the moved piece
+        Pieces piece;     // The piece that was moved
 
-        bool take;      // If an opponents piece was taken
-        Check check;   // Holds check info
-        Castle castle;  // Holds castle info
+        bool take;        // If an opponents piece was taken
+        Check check;      // Holds check info
+        Castle castle;    // Holds castle info
     };
 
 
